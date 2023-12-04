@@ -15,7 +15,7 @@ const Page = async () => {
 
     //get notifications
     const activity = await getActivity(userInfo._id);
-
+    console.log(activity)
 
     return(
         <section className="max-w-4xl m-auto">

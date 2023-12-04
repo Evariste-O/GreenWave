@@ -14,7 +14,13 @@ const threadSchema = new mongoose.Schema({
     createdAt: {
         type: Date,
         default: Date.now
-    }, 
+    },
+    location: [
+        {
+            type: Number,
+            ref: 'location'
+        } 
+    ],
     parentId:{
         type: String
     },

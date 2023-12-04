@@ -13,6 +13,8 @@ async function Page() {
 
     if(!userInfo?.onboarded) redirect('/onboarding');
 
+
+
     return (
         <div className="max-w-4xl m-auto">
             <h1 className="head-text">Create Thread</h1>

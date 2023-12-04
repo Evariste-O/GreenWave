@@ -2,13 +2,12 @@
 import ThreadCard from "@/components/cards/ThreadCard";
 import { fetchPosts } from "@/lib/actions/thread.actions";
 import { currentUser } from "@clerk/nextjs";
-
- 
+import dynamic from 'next/dynamic'
+import 'leaflet/dist/leaflet.css';
 
 export default async function Home() {
   const result = await fetchPosts(1, 30);
   const user = await currentUser();
-
   return (
     <div className="max-w-4xl m-auto">
       <h1 className="head-text text-left">Home</h1>

@@ -23,10 +23,6 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
 
-  const Map = dynamic(() => import('./map/page'), {
-    ssr: false,
-  });  
-
   return (
     <ClerkProvider>
       <html lang="en">

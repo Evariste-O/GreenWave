@@ -52,10 +52,11 @@ interface Params {
   text: string,
   author: string,
   communityId: string | null,
+  location: Array<Number>, 
   path: string,
 }
 
-export async function createThread({ text, author, communityId, path }: Params
+export async function createThread({ text, author, communityId, location, path }: Params
 ) {
   try {
     connectToDB();
@@ -69,6 +70,7 @@ export async function createThread({ text, author, communityId, path }: Params
       text,
       author,
       community: communityIdObject, // Assign communityId if provided, or leave it null for personal account
+      location,
     });
 
     // Update User model
