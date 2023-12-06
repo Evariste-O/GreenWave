@@ -8,6 +8,7 @@ import 'leaflet/dist/leaflet.css';
 export default async function Home() {
   const result = await fetchPosts(1, 30);
   const user = await currentUser();
+
   return (
     <div className="max-w-4xl m-auto">
       <h1 className="head-text text-left">Home</h1>
@@ -28,6 +29,7 @@ export default async function Home() {
               community={post.community}
               createdAt={post.createdAt}
               comments={post.children}
+              coordinates = {post.location}
             />
           ))}
           </>

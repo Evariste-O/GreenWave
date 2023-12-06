@@ -1,7 +1,7 @@
 import '../globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import dynamic from 'next/dynamic';
+import {LocationProvider} from '@/components/shared/LocationProvider'
 
 import Topbar from '@/components/shared/Topbar'
 import LeftSidebar from '@/components/shared/LeftSidebar'
@@ -27,21 +27,19 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body className={inter.className}>
-          <Topbar />
-
-            <main className='flex flex-row'>
-              <LeftSidebar />
-
-                <section className='main-container'>
-                  <div className='w-full h-full'>
-                  {children}
-                  </div>
-                </section>
-              <RightSidebar />
-              
-            </main>
-
-          <Bottombar />
+          <LocationProvider>
+            <Topbar />
+              <main className='flex flex-row'>
+                <LeftSidebar />
+                  <section className='main-container'>
+                    <div className='w-full h-full'>
+                    {children}
+                    </div>
+                  </section>
+                <RightSidebar />             
+              </main>
+            <Bottombar />
+          </LocationProvider>
           </body>
       </html>
     </ClerkProvider>

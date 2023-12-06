@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { formatDateString } from "@/lib/utils";
 import DeleteThread from "../forms/DeleteThread";
+import Distance from "../ui/distance";
 
 interface Props {
   id: string;
@@ -26,6 +27,7 @@ interface Props {
     };
   }[];
   isComment?: boolean;
+  coordinates: Array<Number>;
 }
 
 function ThreadCard({
@@ -38,7 +40,20 @@ function ThreadCard({
   createdAt,
   comments,
   isComment,
+  coordinates,
 }: Props) {
+
+    function success(position : any) {
+    const lat = position.coords.latitude;
+    const long = position.coords.longitude;
+    console.log("success" + lat + " " + long)
+    console.log(location)
+    }
+    
+    function error() {
+    console.log("Unable to retrieve your location");
+    }
+
   return (
     <article
       className={`flex w-full flex-col rounded-xl ${
@@ -70,6 +85,7 @@ function ThreadCard({
             <p className='mt-2 text-small-regular text-light-2'>{content}</p>
 
             <div className={`${isComment && "mb-10"} mt-5 flex flex-col gap-3`}>
+            <Distance coordinates={coordinates}/>
               <div className='flex gap-3.5'>
                 <Image
                   src='/assets/heart-gray.svg'

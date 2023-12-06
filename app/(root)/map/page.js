@@ -10,7 +10,6 @@ const Map = dynamic(
 export default async function Page()  { 
 
   const result = await fetchPosts(1, 30);
-  //const coordinates = result.posts[0].location;
   const coordinates = [];
   for (let i = 0; i < result.posts.length; i++) {
     const temp = {
@@ -21,7 +20,6 @@ export default async function Page()  {
     }
     coordinates.push(temp);
   }
-  console.log("page" + coordinates)
 
   return (
     <Map locations={coordinates}/>
