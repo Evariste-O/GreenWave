@@ -36,9 +36,13 @@ const Map = ({ locations }) => {
 
 
     const style = {  
-        height: 'calc(100% + 80px)',
-        width: 'calc(100% + 80px)',
-        margin: '-40px'
+        height: 'calc(100% + 200px)',
+        width: 'calc(100% + 48px)',
+        margin: '-40px 0px 0px -24px',
+        zIndex: '0'
+        // height: '100%',
+        // width: '100%',
+        // margin: '-40px'
     }
 
 
@@ -51,7 +55,7 @@ const Map = ({ locations }) => {
     return (
         <>
             {!loading && loc && (
-                <MapContainer style={style} center={[location.latitude, location.longitude]} zoom={13}>
+                <MapContainer className="map" center={[location.latitude, location.longitude]} zoom={13}>
                     <ChangeView center={[location.latitude, location.longitude]}/> 
                     <TileLayer
                         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'

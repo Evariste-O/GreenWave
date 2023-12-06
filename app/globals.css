@@ -63,7 +63,7 @@
   }
 
   .bottombar {
-    @apply fixed bottom-0 z-10 w-full rounded-t-3xl bg-glassmorphism p-4 backdrop-blur-lg xs:px-7 md:hidden;
+    @apply fixed bottom-0 z-10 w-full bg-black p-4 backdrop-blur-lg xs:px-7 md:hidden;
   }
 
   .bottombar_container {
@@ -80,6 +80,10 @@
 
   .leftsidebar_link {
     @apply relative flex justify-start gap-4 rounded-lg p-4;
+  }
+
+  .map {
+    @apply md:h-[calc(100%+5rem)] sm:w-[calc(100%+5rem)] z-0 sm:-mx-10  xs:w-[calc(100%+3rem)] -mx-6  -my-10 sm:h-[calc(100%+4rem)] xs:h-[calc(100%+6rem)] h-[calc(100%+6rem)];
   }
 
   .pagination {
