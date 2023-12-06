@@ -4,7 +4,7 @@ import Link from "next/link";
 import getDistance from 'geolib/es/getDistance';
 
 
-const Map = (coordinates) => {
+const Map = (coordinates : any) => {
 
     const [location, setLocation] = useState({
         latitude: coordinates.coordinates[0],
@@ -25,7 +25,7 @@ const Map = (coordinates) => {
           
     }, [])
 
-    function success(position) {
+    function success(position : any) {
         const lat = position.coords.latitude;
         const long = position.coords.longitude;
         setLocation({

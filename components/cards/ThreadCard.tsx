@@ -27,7 +27,7 @@ interface Props {
     };
   }[];
   isComment?: boolean;
-  coordinates: Array<Number>;
+  coordinates?: Array<Number>;
 }
 
 function ThreadCard({

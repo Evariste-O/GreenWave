@@ -12,6 +12,7 @@ interface Result {
   threads: {
     _id: string;
     text: string;
+    location?: Array<Number>;
     parentId: string | null;
     author: {
       name: string;
@@ -45,6 +46,7 @@ async function ThreadsTab({ currentUserId, accountId, accountType }: Props) {
     result = await fetchCommunityPosts(accountId);
   } else {
     result = await fetchUserPosts(accountId);
+    console.log(result)
   }
 
   if (!result) {
@@ -53,7 +55,7 @@ async function ThreadsTab({ currentUserId, accountId, accountType }: Props) {
 
   return (
     <section className='mt-9 flex flex-col gap-10'>
-      {result.threads.map((thread) => (
+      {result.threads.reverse().map((thread) => (
         <ThreadCard
           key={thread._id}
           id={thread._id}
@@ -76,6 +78,7 @@ async function ThreadsTab({ currentUserId, accountId, accountType }: Props) {
           }
           createdAt={thread.createdAt}
           comments={thread.children}
+          coordinates={thread.location}
         />
       ))}
     </section>

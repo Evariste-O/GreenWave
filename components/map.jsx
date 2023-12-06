@@ -34,11 +34,13 @@ const Map = ({ locations }) => {
         return false
     }
 
-    const style = {     
+
+    const style = {  
         height: 'calc(100% + 80px)',
         width: 'calc(100% + 80px)',
         margin: '-40px'
     }
+
 
     function ChangeView({ center, zoom }) {
         const map = useMap();
